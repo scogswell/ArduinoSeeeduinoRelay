@@ -19,7 +19,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  ***********************************************************************************/
 
-#include "WProgram.h"
+// Compatibility with the Arduino 1.0 library standard
+#if defined(ARDUINO) && ARDUINO >= 100  
+#include "Arduino.h"  
+#else  
+#include "WProgram.h"   
+#endif
 #include "SeeeduinoRelay.h"
 
 //

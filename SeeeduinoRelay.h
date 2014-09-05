@@ -44,7 +44,12 @@
 #ifndef SEEEDUINORELAY_H
 #define SEEEDUINORELAY_H
 
-#include "WProgram.h"
+// Compatibility with the Arduino 1.0 library standard
+#if defined(ARDUINO) && ARDUINO >= 100  
+#include "Arduino.h"  
+#else  
+#include "WProgram.h"   
+#endif
 
 // These are the pins that control the relays on the Seeeduino board.  
 // If you are modifying this to work with different relay configurations, 

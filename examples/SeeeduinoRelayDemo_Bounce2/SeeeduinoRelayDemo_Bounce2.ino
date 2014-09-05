@@ -13,8 +13,10 @@
 // http://www.seeedstudio.com/depot/relay-shield-p-693.html?cPath=132_134
 // http://garden.seeedstudio.com/index.php?title=Relay_Shield
 
-#include <Bounce.h>    // http://www.arduino.cc/playground/Code/Bounce
-#include "SeeeduinoRelay.h"
+// This version of the demo program uses the "Bounce2" library for debouncing buttons. 
+// You don't need Bounce2 to use the library itself, just this demo.  
+#include <Bounce2.h>    // http://playground.arduino.cc/Code/Bounce
+#include <SeeeduinoRelay.h>
 
 // Pin definitions for four buttons connected to the Arduino for testing. 
 
@@ -24,12 +26,12 @@
 #define Button4pin 11
 
 // Define "bounce" objects for input buttons.
-// Bounce is really nice, you should use it.  
-// http://www.arduino.cc/playground/Code/Bounce
-Bounce Button1 = Bounce(Button1pin, 5); 
-Bounce Button2 = Bounce(Button2pin, 5); 
-Bounce Button3 = Bounce(Button3pin, 5); 
-Bounce Button4 = Bounce(Button4pin, 5); 
+// Bounce is really nice, you should try it.  
+// http://playground.arduino.cc/Code/Bounce
+Bounce Button1 = Bounce(); 
+Bounce Button2 = Bounce(); 
+Bounce Button3 = Bounce(); 
+Bounce Button4 = Bounce(); 
 
 SeeeduinoRelay RELAY1 = SeeeduinoRelay(1,LOW); 
 SeeeduinoRelay RELAY2 = SeeeduinoRelay(2,LOW); 
@@ -43,12 +45,23 @@ void setup()
   // Setup input pins 
   pinMode(Button1pin, INPUT); 
   digitalWrite(Button1pin, HIGH);  // Activate internal pullup
+  Button1.attach(Button1pin);
+  Button1.interval(5); 
+  
   pinMode(Button2pin, INPUT); 
   digitalWrite(Button2pin, HIGH);  // Activate internal pullup
+  Button2.attach(Button2pin);
+  Button2.interval(5); 
+  
   pinMode(Button3pin, INPUT); 
   digitalWrite(Button3pin, HIGH);  // Activate internal pullup
+  Button3.attach(Button3pin);
+  Button3.interval(5); 
+  
   pinMode(Button4pin, INPUT); 
   digitalWrite(Button4pin, HIGH);  // Activate internal pullup
+  Button4.attach(Button4pin);
+  Button4.interval(5); 
 
   Serial.begin(9600);
   Serial.println("Ready"); 

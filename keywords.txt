@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map For SeeeduinoRelay
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SeeeduinoRelay	 KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+on	 KEYWORD2
+off	 KEYWORD2
+toggle	 KEYWORD2
+state	 KEYWORD2
+isRelayOn	 KEYWORD2
+isRelayOff	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
